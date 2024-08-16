@@ -1,37 +1,48 @@
 'use strict';
+let nombreDeUsuario = "";
 // Solicitando el nombre del usuario
-const nombreDeUsuario = prompt("Hola, ¿me podrías decir tu nombre?");
-alert("Bienvenido, " + nombreDeUsuario + " a nuestro juego.");
+function saludar () {
+     nombreDeUsuario = prompt("Hola, ¿me podrías decir tu nombre?");
+    alert("Bienvenido, " + nombreDeUsuario + " a nuestro juego.");
+}
+saludar ();
 
 // Creando las preguntas basadas en tu perfil
-const preguntas = [
-  "¿Estoy involucrado en la educación técnica en CETEMIN?",  // Sí
-  "¿Estoy trabajando en una academia para operadores de grúa torre?",  // No
-  "¿Estoy colaborando en una empresa de alquiler de maquinaria para construcción de carreteras en Perú?",  // No
-  "¿Estoy aprendiendo y trabajando con tecnologías como Python y Ruby?",  // No
-  "¿Tengo tres hijos?",  // Sí
-  "Intenta adivinar cuántos años de experiencia tengo en minería. Tienes 4 intentos.", //10 años
-  "Menciona un metal de alta producción de nuestro país", // plata, zinc, cobre, plomo y oro
 
-
-];
-
-const respuestas = ["si", "no", "no", "no", "si"]; // Respuestas intercaladas
-let cantidadDePreguntasCorrectas = 0;
-let cantidadDePreguntasIncorrectas = 0;
-
-// Mostrar cada pregunta en un prompt y registrar las respuestas
-for (let i = 0; i < preguntas.length - 2; i++) {
-  const respuestaDeUsuario = prompt(preguntas[i]);
-  if (respuestas[i].toLowerCase() === respuestaDeUsuario.toLowerCase()) {
-    cantidadDePreguntasCorrectas++;
-    alert("¡Correcto! Fantástico, eres lo máximo.");
-  } else {
-    cantidadDePreguntasIncorrectas++;
-    alert("¡Incorrecto! Uy, qué penita, no la chuntaste.");
+function preguntarSiNo () {
+  const preguntas = [
+    "¿Estoy involucrado en la educación técnica en CETEMIN?",  // Sí
+    "¿Estoy trabajando en una academia para operadores de grúa torre?",  // No
+    "¿Estoy colaborando en una empresa de alquiler de maquinaria para construcción de carreteras en Perú?",  // No
+    "¿Estoy aprendiendo y trabajando con tecnologías como Python y Ruby?",  // No
+    "¿Tengo tres hijos?",  // Sí
+    "Intenta adivinar cuántos años de experiencia tengo en minería. Tienes 4 intentos.", //10 años
+    "Menciona un metal de alta producción de nuestro país", // plata, zinc, cobre, plomo y oro
+  
+  
+  ];
+  
+  const respuestas = ["si", "no", "no", "no", "si"]; // Respuestas intercaladas
+  let cantidadDePreguntasCorrectas = 0;
+  let cantidadDePreguntasIncorrectas = 0;
+  
+  // Mostrar cada pregunta en un prompt y registrar las respuestas
+  for (let i = 0; i < preguntas.length - 2; i++) {
+    const respuestaDeUsuario = prompt(preguntas[i]);
+    if (respuestas[i].toLowerCase() === respuestaDeUsuario.toLowerCase()) {
+      cantidadDePreguntasCorrectas++;
+      alert("¡Correcto! Fantástico, eres lo máximo.");
+    } else {
+      cantidadDePreguntasIncorrectas++;
+      alert("¡Incorrecto! Uy, qué penita, no la chuntaste.");
+    }
   }
+  
 }
+preguntarSiNo();
+
 // Busqueda de mi experiencia en minería
+function solicitarMiExperiencia () {
 const experienciaMineria = 10; // Años de experiencia en minería
 for (let i = 0; i < 4; i++) {
   const respuestaExperienciaMineria = prompt(preguntas[5]);
@@ -46,9 +57,13 @@ for (let i = 0; i < 4; i++) {
   }
 }
 
+}
+solicitarMiExperiencia();
+
 
 // Los metales mas importantes de nuestro país
-const mineralesImportantes = ['plata', 'zinc', 'cobre', 'plomo', 'oro'];
+function solicitarMineralImportante () {
+  const mineralesImportantes = ['plata', 'zinc', 'cobre', 'plomo', 'oro'];
 let intentos = 6
 for (let i = 0; i < intentos; i++) {
   const respuestaMineralesImportantes = prompt(preguntas[6].toLowerCase());
@@ -68,10 +83,18 @@ for (let i = 0; i < intentos; i++) {
 if (!encontramosLaRespuesta && intentos > 0) {
   alert("Se acabaron tus intentos. Los minerales importantes son: plata, zinc, cobre, plomo, oro.");
 }
+ 
+}
 
+solicitarMineralImportante();
 
 
 // Informando al usuario sobre su desempeño en el juego
-alert("Hola " + nombreDeUsuario + ", respondiste correctamente a " + cantidadDePreguntasCorrectas + " preguntas.");
+function entregarResultado () {
+  alert("Hola " + nombreDeUsuario + ", respondiste correctamente a " + cantidadDePreguntasCorrectas + " preguntas.");
 alert(nombreDeUsuario + ", respondiste incorrectamente a " + cantidadDePreguntasIncorrectas + " preguntas.");
 alert("Gracias, " + nombreDeUsuario + ", por participar en este juego de trivia. ¡Hasta la próxima!");
+
+
+}
+entregarResultado();
